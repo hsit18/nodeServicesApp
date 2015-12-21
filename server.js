@@ -1,14 +1,17 @@
 var express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-
 var app = express();
-var serviceapp = express();
-
-serviceapp.use(bodyParser.json());
-serviceapp.use(bodyParser.urlencoded({
-    extended: true
-}));
+var port = process.env.PORT || 8080;
+var restful = require('node-restful');
+var mongoose = restful.mongoose;
+var seeder = require('./helper/Seeder.js');
+var database = require('./config/database');
+var bodyParser      = require('body-parser');
+var connection = mongoose.connect(database.url);
+var db = mongoose.connection;
+mongoose.connection.on('open', function () {
+    console.log("DB connection setup");
+    seeder.PopulateDB;
+});
 
 var allowCrossDomain = function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -17,52 +20,15 @@ var allowCrossDomain = function(req, res, next) {
     next();
 };
 
-serviceapp.use(allowCrossDomain);
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(allowCrossDomain);
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+require('./routes.js')(app);
 
-app.use('/', function(req, res) {
-    console.log("Page call");
-    res.sendFile(__dirname + '/dist/index.html');
+app.listen(port, function() {
+    console.log('Server listening on port ...'+ port);
 });
-
-serviceapp.post('/api/login', function(req, res) {
-    console.log("Api call");
-    var userName = req.body.userName;
-    var password = req.body.password;
-
-    if (userName === 'test@test.com' && password === 'test123') {
-        var loginServiceObj = {
-            LoginStatus: true,
-            msg: 'valid user',
-            id: 1222
-        };
-    } else {
-        var loginServiceObj = {
-            LoginStatus: false,
-            msg: 'invalid user'
-        };
-    }
-
-    res.json(loginServiceObj);
-});
-
-serviceapp.post('*', function(req, res, next) {
-    var err = new Error();
-    err.status = 404;
-    err.message = "endpoint not found";
-    next(err);
-});
-
-// handling 404 errors
-serviceapp.use(function(err, req, res, next) {
-    console.log(err);
-    if (err.status != 404) {
-        return next();
-    }
-    res.status(err.status).send(err.message || '** no unicorns here **');
-});
-
-app.listen(8001);
-serviceapp.listen(8002);
-console.log('Server running on port: 8001');
