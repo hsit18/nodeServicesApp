@@ -5,8 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
-    //"test": "mocha"
-    //"postinstall": "bower install"
   },
   "author": "harpreet singh",
   "license": "ISC",
