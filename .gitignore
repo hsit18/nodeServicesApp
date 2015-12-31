@@ -1,4 +1,1 @@
-npm-debug.log
-node_modules/
-.tmp/
-dist/
+node_modules

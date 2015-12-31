@@ -1,4 +1,4 @@
 module.exports = {
-	//url : 'mongodb://localhost/step-ahead'
-    url : 'mongodb://spartan:spartan123@ds045604.mongolab.com:45604/step-ahead'
+	localUrl : 'mongodb://localhost/hsit18apiprovider',
+    liveUrl : 'mongodb://hsit18ApiProvider:hsit181234$@ds035735.mongolab.com:35735/hsit18apiprovider'
 }

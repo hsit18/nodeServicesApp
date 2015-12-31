@@ -1,14 +1,14 @@
 {
-  "name": "x24spartans",
+  "name": "hsit18ApiProvider",
   "version": "1.0.0",
-  "description": "x24spartans stepAhead",
+  "description": "Rest API provider for my personal apps",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "mocha",
-    "postinstall": "bower install"
+    "start": "node server.js"
+    //"test": "mocha"
+    //"postinstall": "bower install"
   },
-  "author": "",
+  "author": "harpreet singh",
   "license": "ISC",
   "dependencies": {
     "async": "^1.5.0",

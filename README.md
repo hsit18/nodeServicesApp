@@ -1,2 +1,2 @@
-# AngularUIFramework
-A boilerplate Angular structure to use across Angular sites.
+# hsit18
+Rest API provider for my personal apps. 
