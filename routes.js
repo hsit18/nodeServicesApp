@@ -305,6 +305,26 @@ module.exports = function(app) {
         });    
     });
 
+    app.get('/api/getCategories', function(req, res){
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        var categories = [
+                    {
+                        id: 1,
+                        name: 'Category One'
+                    },
+                    {
+                        id: 2,
+                        name: 'Category Two'
+                    },
+                    {
+                        id: 3,
+                        name: 'Category Three'
+                    }
+                ];
+        res.json(categories);
+
+    });
+
     app.use('/', function(req, res) {       
         res.send('Heroku testing'); 
        // res.sendFile(__dirname + '/public/index.html');
