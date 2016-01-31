@@ -8,6 +8,10 @@ var roleSchema = mongoose.Schema({
         trim: true,
         default: ''
     },
+    fakeId: {
+        type: Number,        
+        default: ''
+    },
     description: {
         type: String,
         trim: true,

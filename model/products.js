@@ -3,8 +3,21 @@ var mongoose = restful.mongoose;
 var CONSTANT = require('../utilities/Constant').CONSTANT;
 
 var roleSchema = mongoose.Schema({
-	ID: Number,
-	Name: String
+	categoryId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: CONSTANT.TABLES.CATEGORIES,
+        required: true
+    },
+	name: {
+        type: String,
+        trim: true,
+        default: ''
+    },
+    description: {
+        type: String,
+        trim: true,
+        default: ''
+    }
 });
 
-module.exports = restful.model(CONSTANT.TABLES.ROLE, roleSchema);
+module.exports = restful.model(CONSTANT.TABLES.PRODUCTS, roleSchema);

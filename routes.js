@@ -1,4 +1,5 @@
 var categoriesModel = require('./model/categories');
+var productsModel = require('./model/products');
 var CONSTANT = require('./utilities/Constant').CONSTANT;
 var products = [
     {
@@ -75,26 +76,29 @@ var products = [
     }
 ];
 
+var categories = [
+    {
+        id: 1,
+        name: 'Category One'
+    },
+    {
+        id: 2,
+        name: 'Category Two'
+    },
+    {
+        id: 3,
+        name: 'Category Three'
+    }
+];
 module.exports = function(app) {
     
     categoriesModel.methods(['get', 'post', 'delete']);
     categoriesModel.register(app, '/api/categories');
 
+    productsModel.methods(['get', 'post', 'delete']);
+    productsModel.register(app, '/api/products');    
+
     app.get('/api/getCategories', function(req, res){
-        var categories = [
-                    {
-                        id: 1,
-                        name: 'Category One'
-                    },
-                    {
-                        id: 2,
-                        name: 'Category Two'
-                    },
-                    {
-                        id: 3,
-                        name: 'Category Three'
-                    }
-                ];
         res.json(categories);
     });
 

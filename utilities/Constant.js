@@ -1,7 +1,8 @@
 module.exports = {
     'CONSTANT': {
         'TABLES': {
-            'CATEGORIES': 'categories'
+            'CATEGORIES': 'categories',
+            'PRODUCTS': 'products'
         }
     }
 };
