@@ -1,6 +1,11 @@
 var categoriesModel = require('./model/categories');
 var productsModel = require('./model/products');
 var CONSTANT = require('./utilities/Constant').CONSTANT;
+
+var api_key = 'SEM3A7F0D632069FC1FD9D181BC4A8B08C0D';
+var api_secret = 'MDIyMTlkODhiMTFhMjhjMjM5ZTA2YTQ3MGZmYjBmNGQ';
+var sem3 = require('semantics3-node')(api_key,api_secret);
+
 var products = [
     {
         id: 1,
@@ -133,6 +138,48 @@ module.exports = function(app) {
         }
 
         res.json(loginServiceObj);
+    });
+
+    app.get('/api/ecom/getCategoriesById/:catId', function(req, res){
+        sem3.products.categories_field( "parent_cat_id", req.params.catId );
+        sem3.products.get_categories(
+           function(err, products) {
+              if (err) {
+                 console.log("Couldn't execute query: getCategoriesById"+ err);
+                 res.json({status:false, msg: err});
+                 return;
+              } 
+              res.json(products);
+           }   
+        );
+    });
+
+    app.get('/api/searchProduct/:searchParam', function(req, res){
+        sem3.products.products_field( "search", req.params.searchParam );
+        sem3.products.get_products(
+           function(err, products) {
+              if (err) {
+                 console.log("Couldn't execute query: searchProduct"+err);
+                 res.json({status:false, msg: err});
+                 return;
+              } 
+              res.json(products);  
+           }   
+        );
+    });
+
+    app.get('/api/ecom/getProductsByCatId/:catId', function(req, res){
+        sem3.products.products_field( "cat_id", req.params.catId );
+        sem3.products.get_products(
+           function(err, products) {
+              if (err) {
+                 console.log("Couldn't execute query: get_products"+ err);
+                 return;
+              } 
+              res.json(products);  
+            console.log("Results of query:\n" + JSON.stringify( products )); 
+           }   
+        );
     });
 
     app.use('/', function(req, res) {       
