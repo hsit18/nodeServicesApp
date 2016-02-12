@@ -1,100 +1,14 @@
 var categoriesModel = require('./model/categories');
 var productsModel = require('./model/products');
 var CONSTANT = require('./utilities/Constant').CONSTANT;
+var pkgJson = require('./package.json');
+var sem3 = require('semantics3-node')(pkgJson.semanticsApi.api_key, pkgJson.semanticsApi.api_secret);
 
-var api_key = 'SEM3A7F0D632069FC1FD9D181BC4A8B08C0D';
-var api_secret = 'MDIyMTlkODhiMTFhMjhjMjM5ZTA2YTQ3MGZmYjBmNGQ';
-var sem3 = require('semantics3-node')(api_key,api_secret);
+var tempEcommerceData = require('./tempData/ecommerceData.js');
 
-var products = [
-    {
-        id: 1,
-        categoryId: 1,
-        name: 'Product One',
-        description: 'Description for product One'
-    },
-    {
-        id: 2,
-        categoryId: 1,
-        name: 'Product Two',
-        description: 'Description for product Two'
-    },
-    {
-        id: 3,
-        categoryId: 1,
-        name: 'Product Three',
-        description: 'Description for product Three'
-    },
-    {
-        id: 4,
-        categoryId: 1,
-        name: 'Product Four',
-        description: 'Description for product Four'
-    },
-    {
-        id: 5,
-        categoryId: 1,
-        name: 'Product Five',
-        description: 'Description for product Five'
-    },
-    {
-        id: 6,
-        categoryId: 2,
-        name: 'Product Six',
-        description: 'Description for product Six'
-    },
-    {
-        id: 7,
-        categoryId: 2,
-        name: 'Product Seven',
-        description: 'Description for product Seven'
-    },
-    {
-        id: 8,
-        categoryId: 2,
-        name: 'Product Eight',
-        description: 'Description for product Eight'
-    },
-    {
-        id: 9,
-        categoryId: 2,
-        name: 'Product Nine',
-        description: 'Description for product Nine'
-    },
-    {
-        id: 10,
-        categoryId: 3,
-        name: 'Product Ten',
-        description: 'Description for product Ten'
-    },
-    {
-        id: 11,
-        categoryId: 3,
-        name: 'Product Eleven',
-        description: 'Description for product Eleven'
-    },
-    {
-        id: 12,
-        categoryId: 3,
-        name: 'Product Twelve',
-        description: 'Description for product Twelve'
-    }
-];
+categories = tempEcommerceData.categories;
+products = tempEcommerceData.products;
 
-var categories = [
-    {
-        id: 1,
-        name: 'Category One'
-    },
-    {
-        id: 2,
-        name: 'Category Two'
-    },
-    {
-        id: 3,
-        name: 'Category Three'
-    }
-];
 module.exports = function(app) {
     
     categoriesModel.methods(['get', 'post', 'delete']);

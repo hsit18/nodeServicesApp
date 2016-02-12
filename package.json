@@ -28,6 +28,10 @@
     "debug": "^2.1.1"
   },
   "devDependencies": {
-    "moltin": "^1.0.0"
+    "semantics3-node": "0.0.3"
+  },
+  "semanticsApi": {
+    "api_key": "SEM3A7F0D632069FC1FD9D181BC4A8B08C0D",
+    "api_secret": "MDIyMTlkODhiMTFhMjhjMjM5ZTA2YTQ3MGZmYjBmNGQ"
   }
 }

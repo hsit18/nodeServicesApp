@@ -6,7 +6,7 @@ var mongoose = restful.mongoose;
 var seeder = require('./helper/Seeder.js');
 var database = require('./config/database');
 var bodyParser      = require('body-parser');
-var connection = mongoose.connect(database.localUrl);
+var connection = mongoose.connect(database.liveUrl);
 var db = mongoose.connection;
 
 mongoose.connection.on('open', function () {
