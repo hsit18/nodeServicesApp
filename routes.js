@@ -87,11 +87,23 @@ module.exports = function(app) {
         sem3.products.get_products(
            function(err, products) {
               if (err) {
-                 console.log("Couldn't execute query: get_products"+ err);
+                 console.log("Couldn't execute query: getProductsByCatId"+ err);
                  return;
               } 
               res.json(products);  
-            console.log("Results of query:\n" + JSON.stringify( products )); 
+           }   
+        );
+    });
+
+    app.get('/api/ecom/getProductDetailById/:ProdId', function(req, res){
+        sem3.products.products_field( "sem3_id", req.params.ProdId );
+        sem3.products.get_products(
+           function(err, products) {
+              if (err) {
+                 console.log("Couldn't execute query: getProductDetailById"+ err);
+                 return;
+              } 
+              res.json(products);  
            }   
         );
     });
