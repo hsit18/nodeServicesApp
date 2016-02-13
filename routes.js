@@ -2,7 +2,6 @@ var categoriesModel = require('./model/categories');
 var productsModel = require('./model/products');
 var CONSTANT = require('./utilities/Constant').CONSTANT;
 var pkgJson = require('./package.json');
-console.log(">>>>>>>>>>>>>"+ JSON.stringify(pkgJson));
 var sem3 = require('semantics3-node')(pkgJson.semanticsApi.api_key, pkgJson.semanticsApi.api_secret);
 
 var tempEcommerceData = require('./tempData/ecommerceData.js');
