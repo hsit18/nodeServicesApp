@@ -1,0 +1,34 @@
+<form name="LoginForm" class="form-signin" novalidate="">
+    <ion-view view-title="Please Sign-In">
+        <ion-header-bar align-title="center" class="bar-dark">
+            <h1 class="title">Please Sign-In</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email Address</span>
+                    <input name="email" type="text" data-ng-model="loginCtrl.loginField.email" id="inputEmail" placeholder="Email address" required="" data-ng-pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/">
+                </label>
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Password</span>
+                    <input name="password" data-ng-model="loginCtrl.loginField.password" data-ng-min-length="8" type="password" id="inputPassword" placeholder="Password" required="">
+                </label>
+            </div>
+
+            <div class="padding assertive">            
+                <p data-ng-if="(LoginForm.$submitted || LoginForm.email.$touched) && LoginForm.email.$error.required">Email Address Required.</p>
+                <p data-ng-if="(LoginForm.$submitted || LoginForm.email.$touched) && LoginForm.email.$error.pattern">Enter valid email address.</p>
+                <p data-ng-if="(LoginForm.$submitted || LoginForm.password.$touched) && LoginForm.password.$error.required">Password Required.</p>
+            </div>    
+
+            <div class="padding">
+                <button class="button button-block button-positive" data-ng-click="loginCtrl.submitForm(LoginForm)" type="submit">Sign-In</button>
+            </div>
+        </ion-content>
+        <ion-footer-bar align-title="center" class="bottom-banner bar-assertive">
+            <h1 class="title">
+                Copyright &copy; 2016
+            </h1>
+        </ion-footer-bar>
+    </ion-view>
+</form>

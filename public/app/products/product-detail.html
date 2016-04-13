@@ -1,0 +1,44 @@
+<ion-view view-title="Product Details" hide-nav-bar="false">
+	<ion-content>
+        <div>
+            <div class="item item-image" style="position:relative;">
+                <img ng-src="img/3.jpg">
+                <button class="button button-positive product-price" ng-click="addProduct(product)">
+                    <p class="white-color product-price-price">$ <b>{{ProductsCtrl.productObj.price}}</b></p>
+                    <p class="white-color product-price-text">
+                        <i class="ion-android-cart"></i> <span>Buy now</span>
+                    </p>
+                </button>
+            </div>
+            <div class="item ui-gradient-deepblue">
+                <p class="title white-color sans-pro-light item-text-wrap">{{ProductsCtrl.productObj.name}}</p>
+            </div>
+            <div class="item item-body">
+                {{ProductsCtrl.productObj.name}}<br/>
+                {{ProductsCtrl.productObj.manufacturer}}
+            </div>
+            <div class="card" data-ng-repeat="(key, value) in ProductsCtrl.productObj.features">
+                <div class="item item-divider">
+                    {{key}}
+                </div>
+                <div class="item item-text-wrap">
+                    {{value}}
+                </div>
+
+            </div>
+
+        </div>
+
+
+<!-- 		<div class="card">
+			<div class="item item-divider bar bar-positive">{{ProductsCtrl.productObj.name}}</div>
+			<div class="item item-text-wrap">{{ProductsCtrl.productObj.manufacturer}}</div>
+			<div class="item item-divider bar">{{ProductsCtrl.productObj.category}}</div>
+		</div> -->
+<!-- 		<div class="row">
+			<div class="col">
+				<button class="button button-outline button-positive col">Send Enquiry</button>
+			</div>
+		</div> -->
+	</ion-content>
+</ion-view>

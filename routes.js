@@ -109,7 +109,7 @@ module.exports = function(app) {
     });
 
     app.use('/', function(req, res) {       
-        res.send('Heroku testing'); 
-       // res.sendFile(__dirname + '/public/index.html');
+        //res.send('Heroku testing'); 
+        res.sendFile(__dirname + '/public/index.html');
     });
 };
