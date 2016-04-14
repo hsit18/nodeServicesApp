@@ -1,13 +1,21 @@
 <ion-view view-title="Critics Listing" hide-back-button="true">
     <ion-content>
         <ion-list>
-            <ion-item data-ng-repeat="category in CategoriesCtrl.categories">
+        <a class="item item-avatar" href="#" data-ng-repeat="critic in CriticsCtrl.critics">
+          <img src="{{critic.picture}}">
+          <h2>{{critic.name}}</h2>
+          <p>{{critic.review_text}}</p>
+          <p><rating ng-model="critic.movie_rating" max="10"></rating></p>
+          
+        </a>
+
+            <!-- <ion-item data-ng-repeat="critic in CriticsCtrl.critics">
                 <div class="row">
                     <div class="col col-10 item-icon-left"><i class="icon ion-chatbubble-working" ui-sref="app.categories({id: category.cat_id})"></i></div>
-                    <div class="col col-70 item-text-wrap">{{category.name}}</div>
-                    <div class="col col-20 item-note" ui-sref="app.products({id: category.cat_id})">Products</div>
-                </div>
-            </ion-item>
+                    <div class="col col-70 item-text-wrap">{{critic.movie_name}}</div>
+                    <!-- <div class="col col-20 item-note" ui-sref="app.products({id: category.cat_id})">Products</div> --
+                </div> 
+            </ion-item>-->
         </ion-list>
     </ion-content>
 </ion-view>

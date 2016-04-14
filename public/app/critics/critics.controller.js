@@ -22,7 +22,7 @@
         vm.loadCritics = function() {
             $ionicLoading.show();
             CriticsService.getCriticsData().then(function(result) {
-                vm.categories = result;
+                vm.critics = result.RESPONSE;
                 $ionicLoading.hide();
             }, function(error){
 

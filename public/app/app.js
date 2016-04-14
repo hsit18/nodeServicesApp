@@ -10,7 +10,8 @@
     'use strict';
     angular
         .module('angularApp', [
-            'UtilApp'
+            'UtilApp',
+            'ionic.rating'
         ])
         .run(["$rootScope", "$state", "$ionicPlatform", "loginAuthenticationFactory", function($rootScope, $state, $ionicPlatform, loginAuthenticationFactory) {
             $ionicPlatform.ready(function() {
