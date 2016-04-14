@@ -74,6 +74,16 @@
                     controllerAs: 'ProductsCtrl'
                 }
             }
+        })
+        .state('app.critics', {
+            url: '/critics',
+            views: {
+                'menuContent': {
+                    templateUrl: 'app/critics/critics.html',
+                    controller: 'CriticsController',
+                    controllerAs: 'CriticsCtrl'
+                }
+            }
         });
 
         //$urlRouterProvider.otherwise('/app');

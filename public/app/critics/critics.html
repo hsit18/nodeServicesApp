@@ -1,0 +1,16 @@
+<ion-view view-title="Critics Listing" hide-back-button="true">
+    <ion-content>
+        <ion-list>
+            <ion-item data-ng-repeat="category in CategoriesCtrl.categories">
+                <div class="row">
+                    <div class="col col-10 item-icon-left"><i class="icon ion-chatbubble-working" ui-sref="app.categories({id: category.cat_id})"></i></div>
+                    <div class="col col-70 item-text-wrap">{{category.name}}</div>
+                    <div class="col col-20 item-note" ui-sref="app.products({id: category.cat_id})">Products</div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+
+
+
