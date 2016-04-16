@@ -16,7 +16,9 @@
     LoginController.$inject = ['LoginService', 'toastr', '$location', 'StorageUtil', '$loading'];
 
     function LoginController( LoginService, toastr, $location, StorageUtil, $loading) {
-        
+        StorageUtil.setSession('userId', 1);
+        $location.path('/home');   
+
         this.submitForm = function(loginForm) {
             if(loginForm.$valid) {                
                 $loading.start('commonLoader');

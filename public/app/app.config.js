@@ -22,7 +22,7 @@
         $stateProvider
         .state('app', {
             url: '/app',
-            loginReq: true,
+            //loginReq: true,
             abstract: true,
             templateUrl: 'app/main/main.html',
             controller: 'MainController',
@@ -30,7 +30,7 @@
         })
         .state('app.home', {
             url: '/home',
-            loginReq: true,
+            //loginReq: true,
             views: {
                 'menuContent': {
                     templateUrl: 'app/home/home.html',
